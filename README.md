@@ -95,12 +95,10 @@ npm run dev
 
 ## 🛠️ Technical Stack
 
-- **Frontend**: React.js, TypeScript, Tailwind CSS
-- **Backend**: Python, FastAPI
-- **Vision AI**: OpenAI Vision API
+- **Frontend**:HTML CSS
+- **Backend**: Python
+- **Vision AI**: agentic-doc
 - **Vector Database**: ChromaDB
-- **Image Processing**: PIL, OpenCV
-- **RAG Implementation**: LangChain
 
 ## 📝 API Documentation
 
