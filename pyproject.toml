@@ -1,0 +1,14 @@
+[project]
+name = "search-through-images"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "agentic-doc>=0.2.2",
+    "chromadb>=1.0.10",
+    "dotenv>=0.9.9",
+    "flask>=3.1.1",
+    "langchain>=0.3.25",
+    "langchain-community>=0.3.24",
+]

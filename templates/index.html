@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Search</h1>
+        
+        <!-- Image Upload Section -->
+        <div class="upload-section">
+            <h2>Upload Image</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+                <div class="file-input-container">
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                    <label for="image" class="file-label">Choose an image</label>
+                </div>
+                <button type="submit" class="upload-btn">Upload</button>
+            </form>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2>Search Images</h2>
+            <form action="/search" method="post" class="search-form">
+                <input type="text" name="query" placeholder="Search for an image" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results-section">
+            {% if results %}
+                <h2>Search Results</h2>
+                <div class="results-list">
+                    {% for doc, meta in zip(results['documents'][0], results['metadatas'][0]) %}
+                        <div class="result-item">
+                            <div class="result-source">
+                                <strong>Source:</strong> {{ meta['source'] }}
+                            </div>
+                            <div class="result-summary">
+                                <strong>Summary:</strong>
+                                <p>{{ doc }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Display file name when selected
+        document.getElementById('image').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            document.querySelector('.file-label').textContent = fileName;
+        });
+    </script>
+</body>
+</html> 
